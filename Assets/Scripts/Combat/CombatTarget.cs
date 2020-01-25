@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG.Core;
 
 namespace RPG.Combat
 {
@@ -8,18 +9,6 @@ namespace RPG.Combat
     public class CombatTarget : MonoBehaviour
     {
         
-
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         public bool IsAlive()
         {
             return !transform.GetComponent<Health>().IsDead();

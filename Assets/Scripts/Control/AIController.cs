@@ -11,13 +11,11 @@ namespace RPG.Control
         [SerializeField] float chaseDistance = 5f;
 
         Transform target;
-        Mover moverController;
         Fighter fighterController;
 
         // Use this for initialization
         void Start()
         {
-            moverController = this.GetComponent<Mover>();
             fighterController = this.GetComponent<Fighter>();
         }
 
