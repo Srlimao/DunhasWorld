@@ -9,14 +9,21 @@ namespace RPG.Control
     public class AIController : MonoBehaviour
     {
         [SerializeField] float chaseDistance = 5f;
+        [SerializeField] float chaseTime = 5f;
 
         Transform target;
         Fighter fighterController;
+        Mover moverController;
+        Vector3 guardPosition;
+        float timeSinceLastSawPlayer;
 
         // Use this for initialization
         void Start()
         {
             fighterController = this.GetComponent<Fighter>();
+            moverController = this.GetComponent<Mover>();
+            guardPosition = transform.position;
+            timeSinceLastSawPlayer = Mathf.Infinity;
         }
 
         // Update is called once per frame
@@ -29,16 +36,22 @@ namespace RPG.Control
                 print(target.name);
                 //moverController.StartMoveAction(target.position);
                 fighterController.Attack(target.GetComponent<CombatTarget>());
+                timeSinceLastSawPlayer = 0;
+            }
+            else if (timeSinceLastSawPlayer < chaseTime)
+            {
+                fighterController.Cancel();
             }
             else
             {
                 fighterController.Cancel();
+                moverController.StartMoveAction(guardPosition);
             }
+            timeSinceLastSawPlayer += Time.deltaTime;
         }
 
         private void ProcessScout()
         {
-            //, LayerMask.NameToLayer("Player")
             Collider[] coliders = Physics.OverlapSphere(this.transform.position, chaseDistance, (1 << 8));
             foreach (Collider c in coliders)
             {
@@ -52,8 +65,6 @@ namespace RPG.Control
                 {
                     target = null;
                 }
-
-
             }
         }
 
