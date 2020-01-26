@@ -2,6 +2,7 @@
 using System.Collections;
 using RPG.Movement;
 using RPG.Combat;
+using System;
 
 namespace RPG.Control
 {
@@ -10,12 +11,19 @@ namespace RPG.Control
     {
         [SerializeField] float chaseDistance = 5f;
         [SerializeField] float chaseTime = 5f;
+        [SerializeField] PatrolPath path;
+        [SerializeField] float waypointTolerance = .5f;
+        [SerializeField] float dwellTime = 5f;
+        [SerializeField] [Range(0f, 1f)] float patrolSpeedFraction = .2f;
 
         Transform target;
         Fighter fighterController;
         Mover moverController;
         Vector3 guardPosition;
         float timeSinceLastSawPlayer;
+        int currentWaypointIndex = 0;
+        float timeSinceArriveAtWaypoint;
+        
 
         // Use this for initialization
         void Start()
@@ -24,6 +32,7 @@ namespace RPG.Control
             moverController = this.GetComponent<Mover>();
             guardPosition = transform.position;
             timeSinceLastSawPlayer = Mathf.Infinity;
+            timeSinceArriveAtWaypoint = Mathf.Infinity;
         }
 
         // Update is called once per frame
@@ -44,8 +53,7 @@ namespace RPG.Control
             }
             else
             {
-                fighterController.Cancel();
-                moverController.StartMoveAction(guardPosition);
+                PatrolBehaviour();
             }
             timeSinceLastSawPlayer += Time.deltaTime;
         }
@@ -68,11 +76,51 @@ namespace RPG.Control
             }
         }
 
+        private void PatrolBehaviour()
+        {
+            Vector3 nextPosition = guardPosition;
+            if (path != null)
+            {
+                if (AtWaypoint())
+                {
+                    timeSinceArriveAtWaypoint = 0;
+                    CycleWaypoint();
+                    
+                }
+                nextPosition = GetCurrentWaypoint();
+                timeSinceArriveAtWaypoint += Time.deltaTime;
+
+
+            }
+            if (timeSinceArriveAtWaypoint > dwellTime)
+            {
+                moverController.StartMoveAction(nextPosition,patrolSpeedFraction);
+            }
+            
+        }
+
+        private bool AtWaypoint()
+        {
+            float distanceToWaypoint = Vector3.Distance(transform.position, GetCurrentWaypoint());
+            return distanceToWaypoint < waypointTolerance;
+        }
+
+        private void CycleWaypoint()
+        {
+            currentWaypointIndex = path.GetNextIndex(currentWaypointIndex);
+        }
+
+        private Vector3 GetCurrentWaypoint()
+        {
+            return path.GetWaypoint(currentWaypointIndex);
+        }
+
         void OnDrawGizmosSelected()
         {
             // Draw a yellow sphere at the transform's position
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, chaseDistance);
+            Gizmos.DrawSphere(guardPosition, .3f);
         }
     }
 }

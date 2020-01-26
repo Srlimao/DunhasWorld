@@ -12,6 +12,7 @@ namespace RPG.Movement
     public class Mover : MonoBehaviour, IAction
     {
         // Start is called before the first frame update
+        [SerializeField] float maxSpeed = 6f;
 
         Vector3 target;
 
@@ -30,17 +31,18 @@ namespace RPG.Movement
             UpdateAnimator();
         }
 
-        public void StartMoveAction(Vector3 destination)
+        public void StartMoveAction(Vector3 destination,float speedFraction)
         {
+            
             this.GetComponent<ActionScheduler>().StartAction(this);
-            MoveTo(destination);
+            MoveTo(destination, speedFraction);
         }
 
 
 
-        public void MoveTo(Vector3 destination)
+        public void MoveTo(Vector3 destination, float speedFraction)
         {
-            
+            SetSpeedFraction(speedFraction);
             navMesh.isStopped = false;
             navMesh.SetDestination(destination);
             
@@ -56,6 +58,11 @@ namespace RPG.Movement
             var globalVel = navMesh.velocity;
             Vector3 localVel = transform.InverseTransformDirection(globalVel);
             anim.SetFloat("ForwardSpeed", localVel.z);
+        }
+
+        private void SetSpeedFraction(float speedFraction)
+        {
+            navMesh.speed = maxSpeed*speedFraction;
         }
     }
 }
