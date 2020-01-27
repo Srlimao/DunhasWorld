@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -3169005587969392646}
   - component: {fileID: 7652750115068505101}
   - component: {fileID: 4489228433762807803}
+  - component: {fileID: 1519102900402946030}
   m_Layer: 0
   m_Name: CharacterBase
   m_TagString: Untagged
@@ -104,9 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 067310fb1303991469e268591b994af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponRange: 2
-  weaponCooldown: 1
-  weaponDamage: 15
+  handTransform: {fileID: 0}
+  defaultWeaponConfig: {fileID: 11400000, guid: 20db8cf09e113014d97732f5276d87c9,
+    type: 2}
 --- !u!114 &6716306195900893724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,3 +159,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa384fd3ddb6de4e91e0c9e6339a887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1519102900402946030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2595157128587626277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: 

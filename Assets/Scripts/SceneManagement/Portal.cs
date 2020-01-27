@@ -30,14 +30,28 @@ namespace RPG.SceneManagement
         private IEnumerator Transition()
         {
             Fader fader = FindObjectOfType<Fader>();
+            SavingWrapper saver = FindObjectOfType<SavingWrapper>();
+
             DontDestroyOnLoad(this.gameObject);
+
             yield return fader.FadeOut(fadeOutTime);
+            saver.Save();
             yield return SceneManager.LoadSceneAsync(sceneIndexToLoad);
-            yield return new WaitForSeconds(1f);
+            saver.Load();
+            
+
             Portal otherPortal = GetOtherPortal();
+
             UpdatePlayerSpawn(otherPortal);
+
+            saver.Save();
+            yield return new WaitForSeconds(1f);
             yield return fader.FadeIn(fadeInTime);
-            print("a");
+            
+
+
+
+
             Destroy(this.gameObject);
             
         }

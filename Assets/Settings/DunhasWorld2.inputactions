@@ -344,6 +344,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Save",
+                    "type": "Button",
+                    "id": "bf1b9609-bfd5-4fd1-9947-01c00b0ac924",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -751,6 +759,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e0391292-baa5-4dd2-9721-0be372ad91a0",
+                    "path": "<Keyboard>/f5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Save",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -27,6 +27,52 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "System",
+            "id": "0af62f92-d3f6-4cd8-94d1-c377d75407b0",
+            "actions": [
+                {
+                    "name": "Save",
+                    "type": "Button",
+                    "id": "0507937c-0ade-4e63-921a-a948ab47b228",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "Load",
+                    "type": "Button",
+                    "id": "9e19f988-6181-4eab-be2a-c3241c6a9e1a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "36679789-1360-4647-b071-09d43f8f2eae",
+                    "path": "<Keyboard>/f5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Save",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bb9ee516-6296-4090-969f-4700dec6773e",
+                    "path": "<Keyboard>/f9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Load",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

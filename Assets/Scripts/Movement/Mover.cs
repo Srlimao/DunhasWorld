@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using RPG.Core;
+using RPG.Saving;
 
 
 namespace RPG.Movement
 {
     [RequireComponent(typeof(ActionScheduler))]
-    public class Mover : MonoBehaviour, IAction
+    public class Mover : MonoBehaviour, IAction, ISaveable
     {
         // Start is called before the first frame update
         [SerializeField] float maxSpeed = 6f;
@@ -63,6 +64,17 @@ namespace RPG.Movement
         private void SetSpeedFraction(float speedFraction)
         {
             navMesh.speed = maxSpeed*speedFraction;
+        }
+
+        public object CaptureState()
+        {
+            return new SerializableVector3(this.transform.position);
+        }
+
+        public void RestoreState(object state)
+        {
+            //navMesh.Warp((state as SerializableVector3).ToVector()); se navMesh ta off nao da warp
+            this.transform.position = (state as SerializableVector3).ToVector();
         }
     }
 }
