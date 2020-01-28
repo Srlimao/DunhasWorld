@@ -114,6 +114,10 @@ PrefabInstance:
       propertyPath: handTransformR
       value: 
       objectReference: {fileID: 4172637200505669826}
+    - target: {fileID: 1167955417, guid: b89396f3f6a0ccf468fbba45fa2b1eb8, type: 3}
+      propertyPath: bilBoard
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2595157128587626277, guid: b89396f3f6a0ccf468fbba45fa2b1eb8,
         type: 3}
       propertyPath: m_Name

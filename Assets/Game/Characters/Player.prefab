@@ -45,6 +45,10 @@ PrefabInstance:
       propertyPath: handTransformR
       value: 
       objectReference: {fileID: 6063783521684093250}
+    - target: {fileID: 1167955417, guid: b89396f3f6a0ccf468fbba45fa2b1eb8, type: 3}
+      propertyPath: bilBoard
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1519102900402946030, guid: b89396f3f6a0ccf468fbba45fa2b1eb8,
         type: 3}
       propertyPath: uniqueIdentifier

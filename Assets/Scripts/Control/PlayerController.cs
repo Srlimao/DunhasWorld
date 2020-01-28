@@ -41,13 +41,15 @@ namespace RPG.Control
 
         private Ray GetMouseRay()
         {
-            return Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            Ray r = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            Debug.DrawRay(r.origin,r.direction*15f,Color.red);
+            return r;
         }
 
         private bool InteractWithMovement()
         {
             RaycastHit hit;
-            if (Physics.Raycast(GetMouseRay(), out hit))
+            if (Physics.Raycast(GetMouseRay(), out hit,20f,1<<10))
             {
                 if (Mouse.current.leftButton.isPressed)
                 {
@@ -66,7 +68,8 @@ namespace RPG.Control
             foreach (RaycastHit hit in hits)
             {
                 target = hit.transform.GetComponent<CombatTarget>();
-                if (target != null && target.IsAlive()) { break; }
+                if (target != null && target.IsAlive() && !target.CompareTag("Player")) { break; }
+                target = null;
             }
             if (target == null) { return false; }
             if (Mouse.current.leftButton.isPressed)

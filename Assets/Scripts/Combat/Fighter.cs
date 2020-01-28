@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Core;
 using RPG.Movement;
+using TMPro;
 
 namespace RPG.Combat
 {
@@ -94,8 +95,16 @@ namespace RPG.Combat
         }
         void Shoot()
         {
-            GameObject arrow = Instantiate(currentWeapon.GetProjectile(), this.transform);
-            arrow.transform.LookAt(target.transform);
+            if (target == null)
+            {
+                Cancel();
+                return;
+            }
+            GameObject arrow = Instantiate(currentWeapon.GetProjectile(), handTransformL.position,Quaternion.identity);
+            target.gameObject.TryGetComponent<Collider>(out Collider targetCol);
+            //arrow.transform.LookAt(target.position+(Vector3.up*(targetCol.bounds.size.y/2)));
+            arrow.GetComponent<Projectile>().SetTarget(target);
+            arrow.GetComponent<Projectile>().SetDamage(currentWeapon.weaponDamage);
         }
 
     }

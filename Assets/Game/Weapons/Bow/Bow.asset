@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Bow
   m_EditorClassIdentifier: 
   weaponRange: 15
-  weaponCooldown: 3
+  weaponCooldown: 0.5
   weaponDamage: 25
   weaponPrefab: {fileID: 4371376431193942637, guid: e4898ce5c830dac4aa05d88f7f34a72b,
     type: 3}
   isLeftHanded: 1
-  projectilePrefab: {fileID: 8103682341024745142, guid: 78da055b8c8a42a429dda1004c1c87f9,
+  projectilePrefab: {fileID: 1895044332299637725, guid: a2138728b92a98e4aa5870d48ecac776,
     type: 3}
   animOverride: {fileID: 22100000, guid: cafd1587aa084d243a98a954f352be0e, type: 2}
