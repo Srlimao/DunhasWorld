@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 4489228433762807803}
   - component: {fileID: 1519102900402946030}
   - component: {fileID: 2497469298115681742}
+  - component: {fileID: 8564707747120280470}
   m_Layer: 0
   m_Name: CharacterBase
   m_TagString: Untagged
@@ -108,9 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handTransformR: {fileID: 0}
   handTransformL: {fileID: 0}
-  defaultWeaponConfig: {fileID: 11400000, guid: 20db8cf09e113014d97732f5276d87c9,
-    type: 2}
-  bilBoard: {fileID: 0}
+  defaultWeapon: {fileID: 11400000, guid: 20db8cf09e113014d97732f5276d87c9, type: 2}
 --- !u!114 &6716306195900893724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,3 +190,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8564707747120280470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2595157128587626277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 361701dec21462f47858c30f2ca9ace5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingLevel: 1
+  characterClass: 1
+  progression: {fileID: 11400000, guid: bc238dac427797b4194cb16754220c6d, type: 2}

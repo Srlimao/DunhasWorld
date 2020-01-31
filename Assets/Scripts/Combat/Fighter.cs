@@ -4,15 +4,17 @@ using UnityEngine;
 using RPG.Core;
 using RPG.Movement;
 using TMPro;
+using RPG.Saving;
+using RPG.Resources;
 
 namespace RPG.Combat
 {
     [RequireComponent(typeof(ActionScheduler))]
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] Transform handTransformR;
         [SerializeField] Transform handTransformL;
-        [SerializeField] Weapon defaultWeaponConfig = null;
+        [SerializeField] Weapon defaultWeapon;
 
         Transform target;
         float timeSinceLastAttack;
@@ -20,8 +22,12 @@ namespace RPG.Combat
 
         private void Start()
         {
-            currentWeapon = defaultWeaponConfig;
-            EquipWeapon(currentWeapon);
+            if(currentWeapon == null)
+            {
+                currentWeapon = defaultWeapon;
+                EquipWeapon(defaultWeapon);
+            }
+            
             
         }
 
@@ -87,15 +93,20 @@ namespace RPG.Combat
             
         }
 
+        public Transform GetTarget()
+        {
+            return target;
+        }
+
         //Animation Events
         void Hit()
         {
             if (target == null) return;
-            target.GetComponent<Health>().TakeDamage(currentWeapon.weaponDamage);
+            target.GetComponent<Health>().TakeDamage(currentWeapon.weaponDamage,this.gameObject);
         }
         void Shoot()
         {
-            if (target == null)
+            if (target == null || !target.GetComponent<CombatTarget>().IsAlive())
             {
                 Cancel();
                 return;
@@ -103,10 +114,20 @@ namespace RPG.Combat
             GameObject arrow = Instantiate(currentWeapon.GetProjectile(), handTransformL.position,Quaternion.identity);
             target.gameObject.TryGetComponent<Collider>(out Collider targetCol);
             //arrow.transform.LookAt(target.position+(Vector3.up*(targetCol.bounds.size.y/2)));
-            arrow.GetComponent<Projectile>().SetTarget(target);
+            arrow.GetComponent<Projectile>().SetTarget(target,this.gameObject);
             arrow.GetComponent<Projectile>().SetDamage(currentWeapon.weaponDamage);
         }
 
+        public object CaptureState()
+        {
+            return currentWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            currentWeapon = UnityEngine.Resources.Load<Weapon>(state as string);
+            EquipWeapon(currentWeapon);
+        }
     }
 
 }

@@ -24,7 +24,19 @@ namespace RPG.Combat
             if (weaponPrefab == null || rightHand == null) return;
             GameObject weapon = Instantiate(weaponPrefab, isLeftHanded? leftHand : rightHand);
             weapon.name = weaponName;
-            animator.runtimeAnimatorController = animOverride;
+            if (animator != null)
+            {
+                animator.runtimeAnimatorController = animOverride;
+            }
+            else
+            {
+                var overrideControler = animator.runtimeAnimatorController as AnimatorOverrideController;
+                if(overrideControler != null)
+                {
+                    animator.runtimeAnimatorController = overrideControler.runtimeAnimatorController;
+                }
+            }
+            
         }
 
         private void DestroyOldWeapon(Transform rightHand, Transform leftHand)

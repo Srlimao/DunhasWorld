@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!64 &5318551316933744001
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5790619529411996821}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300028, guid: d288a0e4a2d923b46898986e979da643, type: 3}
 --- !u!114 &717824842369915220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +132,11 @@ PrefabInstance:
       propertyPath: bilBoard
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1167955417, guid: b89396f3f6a0ccf468fbba45fa2b1eb8, type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 6c91b12af03c2aa4da3e2593f8d49aed,
+        type: 2}
     - target: {fileID: 2595157128587626277, guid: b89396f3f6a0ccf468fbba45fa2b1eb8,
         type: 3}
       propertyPath: m_Name
@@ -188,7 +207,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8564707747120280470, guid: b89396f3f6a0ccf468fbba45fa2b1eb8,
+        type: 3}
+      propertyPath: characterClass
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7652750115068505101, guid: b89396f3f6a0ccf468fbba45fa2b1eb8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b89396f3f6a0ccf468fbba45fa2b1eb8, type: 3}
 --- !u!1 &5790619529411996821 stripped
 GameObject:

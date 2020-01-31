@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  isHoming: 0
+  impactPrefab: {fileID: 2302457091093092515, guid: 98af177cffdd44044b7113740e4c3b80,
+    type: 3}
 --- !u!65 &1197375144618064179
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58,8 +61,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12041075, y: 0.095501125, z: 0.7475181}
-  m_Center: {x: 0, y: 0, z: 0.3907834}
+  m_Size: {x: 0.12041075, y: 0.095501125, z: 0.81925154}
+  m_Center: {x: 0, y: 0, z: -0.3756634}
 --- !u!1 &7586531831664694028
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,7 +88,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7586531831664694028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.042}
+  m_LocalPosition: {x: 0, y: 0, z: -0.739}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7281323084613679979}
@@ -218,7 +221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4750687242688692, guid: c7f49c6920d49ba468b083941d79f2c0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.781
       objectReference: {fileID: 0}
     - target: {fileID: 4750687242688692, guid: c7f49c6920d49ba468b083941d79f2c0, type: 3}
       propertyPath: m_LocalRotation.x
