@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
     {
         this.instigator = instigator;
         this.target = target;
-        target.gameObject.TryGetComponent<Collider>(out Collider targetCol);
+        target.gameObject.TryGetComponent(out Collider targetCol);
         aimPoint = targetCol.bounds.size.y;
         transform.LookAt(target.position + (Vector3.up * aimPoint/2));
     }

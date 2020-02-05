@@ -14,38 +14,154 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterClasses:
   - charClass: 0
-    healthAtLevel:
-    - 1000
-    - 2000
-    - 3000
-    damageAtLevel:
-    - 10
-    - 20
-    - 30
+    stats:
+    - stat: 0
+      levels:
+      - 10
+      - 20
+      - 30
+      - 40
+      - 50
+      - 60
+      - 70
+      - 80
+      - 90
+      - 100
+    - stat: 1
+      levels:
+      - 10
+      - 20
+      - 30
+      - 40
+      - 50
+      - 60
+      - 70
+      - 80
+      - 90
+      - 100
+    - stat: 2
+      levels:
+      - 2
+      - 4
+      - 6
+      - 8
+      - 10
+      - 12
+      - 14
+      - 16
+      - 18
+      - 20
   - charClass: 1
-    healthAtLevel:
-    - 10
-    - 20
-    - 30
-    damageAtLevel:
-    - 3
-    - 6
-    - 9
+    stats:
+    - stat: 0
+      levels:
+      - 10
+      - 20
+      - 30
+      - 40
+      - 50
+      - 60
+      - 70
+      - 80
+      - 90
+      - 100
+    - stat: 1
+      levels:
+      - 13
+      - 23
+      - 33
+      - 43
+      - 53
+      - 63
+      - 73
+      - 83
+      - 93
+      - 100
+    - stat: 2
+      levels:
+      - 2
+      - 4
+      - 6
+      - 8
+      - 10
+      - 12
+      - 14
+      - 16
+      - 18
+      - 20
   - charClass: 2
-    healthAtLevel:
-    - 10
-    - 20
-    - 30
-    damageAtLevel:
-    - 10
-    - 20
-    - 30
+    stats:
+    - stat: 0
+      levels:
+      - 10
+      - 20
+      - 30
+      - 40
+      - 50
+      - 60
+      - 70
+      - 80
+      - 90
+      - 100
+    - stat: 1
+      levels:
+      - 10
+      - 20
+      - 30
+      - 40
+      - 50
+      - 60
+      - 70
+      - 80
+      - 90
+      - 100
+    - stat: 2
+      levels:
+      - 2
+      - 4
+      - 6
+      - 8
+      - 10
+      - 12
+      - 14
+      - 16
+      - 18
+      - 20
   - charClass: 3
-    healthAtLevel:
-    - 10
-    - 20
-    - 30
-    damageAtLevel:
-    - 10
-    - 20
-    - 30
+    stats:
+    - stat: 0
+      levels:
+      - 10
+      - 20
+      - 30
+      - 40
+      - 50
+      - 60
+      - 70
+      - 80
+      - 90
+      - 100
+    - stat: 1
+      levels:
+      - 10
+      - 20
+      - 30
+      - 40
+      - 50
+      - 60
+      - 70
+      - 80
+      - 90
+      - 100
+    - stat: 2
+      levels:
+      - 2
+      - 4
+      - 6
+      - 8
+      - 10
+      - 12
+      - 14
+      - 16
+      - 18
+      - 20

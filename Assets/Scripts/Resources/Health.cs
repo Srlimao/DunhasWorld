@@ -39,17 +39,22 @@ namespace RPG.Resources
         {
             if (isDead) return;
             if (currentHealth > 0) return;
-            if (instigator != null)
-            {
-                instigator.TryGetComponent(out Experience xpComp);
-
-            }
+            AwardExperience(instigator);
             GetComponent<Animator>().SetTrigger("Death");
             GetComponent<ActionScheduler>().CancelCurrentAction();
             GetComponent<NavMeshAgent>().enabled = false;
             GetComponent<Collider>().enabled = false;
             isDead = true;
 
+        }
+
+        private void AwardExperience(GameObject instigator)
+        {
+            if (instigator != null)
+            {
+                instigator.TryGetComponent(out Experience xpComp);
+                xpComp.GainExperience(GetComponent<BaseStats>().GetExperienceReward());
+            }
         }
 
         public float GetCurrentHealth()
