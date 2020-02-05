@@ -15,11 +15,11 @@ namespace RPG.Stats
         private int currentLevel = 1;
         public float GetHealth()
         {
-            return progression.GetHealth(characterClass, currentLevel);
+            return progression.GetStat(characterClass,Stat.Health, currentLevel);
         }
         public float GetExperienceReward()
         {
-            return progression.GetExperienceReward(characterClass, currentLevel);
+            return progression.GetStat(characterClass,Stat.ExperienceReward ,currentLevel);
         }
     }
 

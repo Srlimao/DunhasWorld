@@ -28,6 +28,7 @@ namespace RPG.Stats
             return true;
         }
 
+        #region SerializedStructs
         [System.Serializable]
         class ProgressionStat
         {
@@ -41,15 +42,11 @@ namespace RPG.Stats
             public CharacterClass charClass;
             public List<ProgressionStat> stats;
         }
+        #endregion
 
-        public float GetExperienceReward(CharacterClass characterClass, int currentLevel)
+        public float GetStat(CharacterClass characterClass, Stat stat,int currentLevel)
         {
-            return innerClasses[characterClass][Stat.ExperienceReward][currentLevel - 1];
-        }
-
-        public float GetHealth(CharacterClass characterClass, int currentLevel)
-        {
-            return innerClasses[characterClass][Stat.Health][currentLevel - 1];
+            return innerClasses[characterClass][stat][currentLevel - 1];
         }
     }
 }
