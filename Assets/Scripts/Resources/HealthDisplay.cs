@@ -9,16 +9,19 @@ namespace RPG.Resources
     public class HealthDisplay : MonoBehaviour
     {
         [SerializeField] Text healthDisplay;
+        [SerializeField] Text xpDisplay;
         [SerializeField] Text targetHealthDisplay;
         
         Fighter playerFighter;
         Health playerHealth;
+        Experience playerExp;
 
 
         private void Awake()
         {
             playerFighter = GameObject.FindGameObjectWithTag("Player").GetComponent<Fighter>();
             playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+            playerExp = GameObject.FindGameObjectWithTag("Player").GetComponent<Experience>();
             
 
         }
@@ -32,6 +35,7 @@ namespace RPG.Resources
         void Update()
         {
             healthDisplay.text = playerHealth.GetCurrentHealth()+" - "+playerHealth.GetCurrentHealthPercent() + "%";
+            xpDisplay.text = playerExp.GetCurrentExp()+"";
             Transform target = playerFighter.GetTarget();
             if (target != null)
             {
